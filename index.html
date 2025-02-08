@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website with Side Menu and Icons</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .menu-icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .side-menu {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .side-menu a {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            transition: 0.3s;
+        }
+        .side-menu a:hover {
+            background-color: #575757;
+        }
+        .side-menu a .fas {
+            margin-right: 10px;
+        }
+        .container {
+            margin-left: 0;
+            padding: 20px;
+            transition: margin-left 0.5s;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+        }
+        section {
+            background-color: #f4f4f4;
+            min-height: 80vh;
+            padding: 20px;
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        @media (min-width: 768px) {
+            .menu-icon {
+                display: none;
+            }
+            .side-menu {
+                width: 250px;
+                left: 0;
+            }
+            .container {
+                margin-left: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <h1>Welcome to My Simple Website</h1>
+    </header>
+    <div id="side-menu" class="side-menu">
+        <a href="#" onclick="showPage('home')"><i class="fas fa-home"></i>Home</a>
+        <a href="#" onclick="showPage('about')"><i class="fas fa-info-circle"></i>About</a>
+        <a href="#" onclick="showPage('services')"><i class="fas fa-concierge-bell"></i>Services</a>
+        <a href="#" onclick="showPage('contact')"><i class="fas fa-envelope"></i>Contact</a>
+    </div>
+    <div class="container">
+        <section id="home" class="active">
+            <h2>Home</h2>
+            <p>This is the home page of my simple website. You can add more content here.</p>
+        </section>
+        <section id="about">
+            <h2>About</h2>
+            <p>This section contains information about the website or its owner.</p>
+        </section>
+        <section id="services">
+            <h2>Services</h2>
+            <p>Details about the services offered can be added here.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>You can include contact information here.</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 My Simple Website. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const sideMenu = document.getElementById('side-menu');
+            sideMenu.style.left = sideMenu.style.left === '0px' ? '-250px' : '0px';
+        }
+
+        function showPage(pageId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
