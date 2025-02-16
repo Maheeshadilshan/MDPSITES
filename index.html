@@ -3,134 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Website with Side Menu and Icons</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Overview of Sri Lanka</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
         }
+
         header {
-            background-color: #0623da;
-            color: #fff;
-            padding: 10px 0;
+            background-color: #265127;
+            color: white;
             text-align: center;
+            padding: 1em 0;
+            flex-shrink: 0;
         }
-        .menu-icon {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 1000;
-        }
-        .side-menu {
-            height: 100%;
-            width: 250px;
+
+        nav {
+            width: 200px;
+            background-color: #333;
             position: fixed;
             top: 0;
-            left: -250px;
-            background-color: #333;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
+            bottom: 0;
+            padding-top: 20px;
+            flex-shrink: 0;
         }
-        .side-menu a {
-            padding: 10px 20px;
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: white;
             text-decoration: none;
-            font-size: 18px;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            transition: 0.3s;
-        }
-        .side-menu a:hover {
-            background-color: #575757;
-        }
-        .side-menu a .fas {
-            margin-right: 10px;
-        }
-        .container {
-            margin-left: 0;
-            padding: 20px;
-            transition: margin-left 0.5s;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            width: 100%;
-        }
-        section {
-            background-color: #f4f4f4;
-            min-height: 80vh;
-            padding: 20px;
-            display: none;
-        }
-        .active {
+            padding: 1em;
             display: block;
         }
-        @media (min-width: 768px) {
-            .menu-icon {
-                display: none;
+
+        nav ul li a:hover {
+            background-color: #4CAF50;
+        }
+
+        main {
+            margin-left: 220px;
+            padding: 2em;
+            flex-grow: 1;
+        }
+
+        section {
+            margin-bottom: 2em;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 400px; /* Adjusted image size */
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #333;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                width: 100%;
+                height: auto;
+                position: relative;
             }
-            .side-menu {
-                width: 250px;
-                left: 0;
+
+            nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
             }
-            .container {
-                margin-left: 250px;
+
+            nav ul li {
+                margin: 0.5em;
+            }
+
+            main {
+                margin-left: 0;
+                padding: 1em;
             }
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.addEventListener('mouseover', () => {
+                    section.style.transform = 'scale(1.05)';
+                    section.style.transition = 'transform 0.3s';
+                });
+                section.addEventListener('mouseout', () => {
+                    section.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
-        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
-        <h1>Welcome to My Simple Website</h1>
+        <h1>Welcome to Sri Lanka</h1>
     </header>
-    <div id="side-menu" class="side-menu">
-        <a href="#" onclick="showPage('home')"><i class="fas fa-home"></i>Home</a>
-        <a href="#" onclick="showPage('about')"><i class="fas fa-info-circle"></i>About</a>
-        <a href="#" onclick="showPage('services')"><i class="fas fa-concierge-bell"></i>Services</a>
-        <a href="#" onclick="showPage('contact')"><i class="fas fa-envelope"></i>Contact</a>
-    </div>
-    <div class="container">
-        <section id="home" class="active">
-            <h2>Home</h2>
-            <p>This is the home page of my simple website. You can add more content here.</p>
+    <nav>
+        <ul>
+            <li><a href="#geography">Geography</a></li>
+            <li><a href="#history">History</a></li>
+            <li><a href="#culture">Culture</a></li>
+            <li><a href="#tourism">Tourism</a></li>
+            <li><a href="#flora-fauna">Flora and Fauna</a></li>
+            <li><a href="#sports">Sports</a></li>
+            <li><a href="#people">People</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="geography">
+            <h2>Geography</h2>
+            <p>Sri Lanka is an island nation located in the Indian Ocean, south of India, separated by the Palk Strait. Its closest neighboring country is the Maldives, situated to the southwest. Covering an area of approximately 65,610 square kilometers, Sri Lanka features coastal plains and central highlands, with Pidurutalagala (2,524 meters) being the highest peak. The country experiences a tropical climate with the Southwest Monsoon (Yala) from May to September and the Northeast Monsoon (Maha) from December to February. Renowned for its rich biodiversity, Sri Lanka is home to dense forests, diverse wildlife, and famous national parks such as Yala, Wilpattu, Udawalawe, and Horton Plains. Administratively, the country is divided into 9 provinces and 25 districts. Sri Jayawardenepura Kotte serves as the administrative capital, while Colombo is the commercial hub.</p>
+            <img src="/MAP.jpeg" alt="Map of Sri Lanka">
         </section>
-        <section id="about">
-            <h2>About</h2>
-            <p>This section contains information about the website or its owner.</p>
-        </section>
-        <section id="services">
-            <h2>Services</h2>
-            <p>Details about the services offered can be added here.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>You can include contact information here.</p>
-        </section>
-    </div>
-    <footer>
-        <p>&copy; 2025 My Simple Website. All rights reserved.</p>
-    </footer>
-    <script>
-        function toggleMenu() {
-            const sideMenu = document.getElementById('side-menu');
-            sideMenu.style.left = sideMenu.style.left === '0px' ? '-250px' : '0px';
-        }
+        <section id="history">
+            <h2>History</h2>
+            <p>Sri Lanka has a rich and diverse history dating back over 2,500 years. The island's historical records begin with the arrival of Prince Vijaya from North India around 543 BCE, establishing the first known kingdom in Anuradhapura. <br>This era marked the beginning of Sinhalese civilization, heavily influenced by Buddhism, which was introduced by Arahat Mahinda during King Devanampiya Tissa's reign in the 3rd century BCE. <br>Anuradhapura thrived as a center of culture and religion for over a millennium.
 
-        function showPage(pageId) {
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
-        }
-    </script>
+                In the 10th century CE, the Chola Empire from South India invaded, leading to the decline of Anuradhapura and the rise of the Polonnaruwa Kingdom. <br>This era saw great architectural and irrigation advancements. Following internal conflicts and South Indian invasions, the capital shifted to Dambadeniya, Yapahuwa, Kurunegala, Gampola, and finally Kotte.
+                
+                By the 16th century, European colonization began with the arrival of the Portuguese (1505), followed by the Dutch (1658), who controlled the coastal regions. In 1796, the British took over, and by 1815, they conquered the Kandyan Kingdom, unifying the entire island under British rule. The country was known as Ceylon during this period.
+                
+                Sri Lanka gained independence from Britain on February 4, 1948, but remained a dominion within the British Commonwealth until it became a republic in 1972, adopting the name Sri Lanka. Post-independence, ethnic tensions between the Sinhalese majority and the Tamil minority escalated, leading to a civil war in 1983 with the Liberation Tigers of Tamil Eelam (LTTE) fighting for a separate state. The war lasted for nearly 26 years, ending in 2009 with the defeat of the LTTE.
+                
+                Since then, Sri Lanka has focused on reconstruction, reconciliation, and economic development, while navigating political challenges. Its history reflects a blend of ancient kingdoms, colonial influences, and modern-day transformations.</p>
+            <img src="/Sigiriya.jpeg" alt="Sigiriya Rock Fortress">
+        </section>
+        <section id="culture">
+            <h2>Culture</h2>
+            <p>Sri Lanka's culture is a rich blend of traditions and influences shaped by its diverse population, including Sinhalese, Tamil, Muslim, and Burgher communities. Predominantly influenced by Buddhism, the island also embraces Hinduism, Islam, and Christianity, reflecting religious harmony. Sinhala and Tamil are the main languages, with English widely spoken. Sri Lankan art and architecture showcase ancient Buddhist stupas, Hindu temples, and colonial buildings. Traditional music and dance, such as Kandyan dance, are vibrant with rhythmic drumming and colorful costumes. The cuisine is known for its spicy flavors, with dishes like rice and curry, hoppers, and kottu roti. Festivals like Sinhala and Tamil New Year, Vesak, Deepavali, and Eid are celebrated with enthusiasm. Cricket is the most popular sport, reflecting the island’s colonial legacy. Sri Lankan culture beautifully blends ancient traditions with modern influences, creating a unique and vibrant society</p>
+            <img src="/Vesak.jpg" alt="Vesak Festival">
+        </section>
+        <section id="tourism">
+            <h2>Tourism</h2>
+            <p>Sri Lanka is a popular tourist destination known for its stunning beaches, historical landmarks, diverse wildlife, and rich cultural heritage. The island offers a variety of experiences, from exploring ancient cities like Anuradhapura, Polonnaruwa, and Sigiriya, which are UNESCO World Heritage sites, to enjoying the scenic beauty of the Central Highlands in places like Kandy, Nuwara Eliya, and Ella. Beach lovers can relax at beautiful coastal destinations such as Bentota, Mirissa, Unawatuna, and Arugam Bay, famous for surfing and whale watching. Sri Lanka is also renowned for its wildlife safaris in national parks like Yala, Udawalawe, and Wilpattu, where visitors can spot elephants, leopards, and exotic bird species. The island's vibrant culture is showcased through colorful festivals, traditional dance performances, and flavorful cuisine. With its warm hospitality and diverse attractions, Sri Lanka continues to be a favorite travel destination for tourists worldwide.</p>
+            <img src="/Mirissa.jpeg" alt="Mirissa Beach">
+        </section>
+        <section id="flora-fauna">
+            <h2>Flora and Fauna</h2>
+            <p>Sri Lanka is renowned for its rich flora and fauna, making it a biodiversity hotspot with a wide range of unique species. The island's varied climate and topography contribute to its lush vegetation, including tropical rainforests, dry forests, montane forests, and coastal ecosystems. Notable plant species include the Ceylon ironwood, na tree (national tree), and various species of orchids and medicinal herbs. Sri Lanka is also famous for its extensive tea plantations in the Central Highlands.
+
+                The island's fauna is equally diverse, with over 100 species of mammals, including the Sri Lankan elephant, leopard, sloth bear, and sambar deer. It is also home to a variety of primates like the purple-faced langur and Toque macaque. Sri Lanka boasts an impressive avian diversity with more than 430 bird species, including many endemics such as the Sri Lanka junglefowl (national bird) and Sri Lanka blue magpie. Reptiles like the Crocodile, Cobra, and Monitor lizard, along with amphibians and freshwater fish, thrive in the island's wetlands and waterways.
+                
+                Marine life is equally spectacular, with whales, dolphins, and colorful coral reefs found along the coast. National parks like Yala, Udawalawe, Wilpattu, and Sinharaja Forest Reserve are vital for wildlife conservation, attracting nature lovers and wildlife enthusiasts from around the world.</p>
+            <img src="/yala.jpeg" alt="Yala National Park">
+        </section>
+        <section id="sports">
+            <h2>Sports</h2>
+            <p>Sports play a significant role in Sri Lankan culture, with cricket being the most popular and widely followed sport. Sri Lanka has produced legendary cricketers like Kumar Sangakkara, Mahela Jayawardene, and Muttiah Muralitharan, and the national team achieved international recognition by winning the ICC Cricket World Cup in 1996. Volleyball is the national sport of Sri Lanka, played in schools and communities across the country.
+
+                In addition to cricket and volleyball, rugby is gaining popularity, particularly among youth and in schools. Football, athletics, and netball are also widely played. Sri Lanka is known for producing talented athletes in track and field, with Olympic medalist Susanthika Jayasinghe being a notable figure. Water sports like surfing in Arugam Bay and kite surfing in Kalpitiya attract international enthusiasts. Traditional games like elle (a form of bat-and-ball game) are popular during cultural festivals.
+                
+                Sri Lanka actively participates in international competitions, including the Olympics, Commonwealth Games, and Asian Games, contributing to its vibrant sporting culture.</p>
+            <img src="/cricket.jpeg" alt="Cricket Match">
+        </section>
+        <section id="people">
+            <h2>People</h2>
+            <p>Sri Lanka is home to a diverse and multicultural population known for their warmth and hospitality. The island's people are primarily divided into four main ethnic groups: Sinhalese, Tamils, Muslims, and Burghers. Sinhalese form the majority, mainly practicing Buddhism, while Tamils, primarily in the Northern and Eastern provinces, follow Hinduism. The Muslim community practices Islam, and the Burghers, of mixed European descent, are mostly Christian.
+
+                Sinhala and Tamil are the official languages, with English widely spoken, especially in urban areas. Family bonds and respect for elders are highly valued, and community ties play a significant role in daily life. Traditional clothing, such as the saree for women and sarong for men, is common, though Western attire is also popular.
+                
+                Sri Lankans celebrate a variety of religious and cultural festivals, including Sinhala and Tamil New Year, Vesak, Deepavali, Eid, and Christmas, reflecting their multicultural harmony. Known for their artistic talents, Sri Lankans excel in music, dance, and craftsmanship, contributing to the island's rich cultural heritage.</p>
+            <img src="/people.jpg" alt="Sri Lankan People">
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Overview of Sri Lanka</p>
+    </footer>
 </body>
 </html>
